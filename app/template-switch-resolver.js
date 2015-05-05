@@ -2,22 +2,25 @@ import Resolver from 'ember/resolver';
 
 
 export default Resolver.extend({
-  resolveTemplate: function(name) {
-    var media = name.root.registry.resolve('responsive:media');
-    var screen = media.get('classNames').replace('media-', '');
-    var lookup = this._super(this.addSuffix(name, screen));
-    if(lookup) {
-      return lookup;
-    } else {
-      this._super(name);
+  moduleNameLookupPatterns: Ember.computed(function(){
+    var arr = this._super();
+    arr.unshift(this.suffixedPodTemplates);
+    arr.unshift(this.suffixedTemplates);
+    return arr;
+  }),
+
+  suffixedTemplates: function(parsedName) {
+    if (parsedName.type === 'template') {
+      return this.defaultModuleName(parsedName) + this.screenType(parsedName);
     }
   },
-  addSuffix: function(obj, suffix) {
-    var tmp = Object.create(obj);
-    if(suffix) {
-      tmp.fullName += '-' + suffix;
-      tmp.fullNameWithoutType += '-' + suffix;
+  suffixedPodTemplates: function(parsedName) {
+    if (parsedName.type === 'template') {
+      return this.podBasedModuleName(parsedName) + this.screenType(parsedName);
     }
-    return tmp;
+  },
+  screenType: function(parsedName) {
+    var media = parsedName.root.registry.resolve('responsive:media');
+    return '.' + media.get('matches.firstObject');
   }
 });
