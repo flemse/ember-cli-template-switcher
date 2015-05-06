@@ -34,3 +34,5 @@ the extensions are directly related to the names given in [app/breakpoints.js](h
 * `ember build`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+Thanks to the author of ember-responsive for providing primitives for this addon.
