@@ -1,7 +1,7 @@
 import Resolver from 'ember/resolver';
+import Ember from 'ember';
 
-
-export default Resolver.extend({
+export default Resolver.reopen({
   moduleNameLookupPatterns: Ember.computed(function(){
     var arr = this._super();
     arr.unshift(this.suffixedPodTemplates);
