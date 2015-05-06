@@ -1,12 +1,23 @@
 # Ember-cli-template-switcher
 
-This README outlines the details of collaborating on this Ember addon.
-
+Allows you to write templates specific to the current screensize.
+The detection of screensizes is based on [ember-responsive](https://github.com/freshbooks/ember-responsive).
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Usage
+
+Examples:
+```
+application.mobile.hbs
+```
+```
+application.desktop.hbs
+```
+```
+application.hbs
+```
+
+the extensions are directly related to the names given in [app/breakpoints.js](https://github.com/freshbooks/ember-responsive#getting-started) and can be overriden.
 
 ## Running
 
@@ -23,3 +34,5 @@ This README outlines the details of collaborating on this Ember addon.
 * `ember build`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+Thanks to the author of ember-responsive for providing primitives for this addon.
