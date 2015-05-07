@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-template-switcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "ember-cli-babel": "^5.0.0",
-    "ember-responsive": "flemse/ember-responsive#master"
+    "ember-responsive": "1.0.2"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
